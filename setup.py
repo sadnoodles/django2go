@@ -10,13 +10,15 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django2go',
-    version='0.1',
+    version='0.1.1',
     packages=find_packages(),
     include_package_data=True,
     description='Translate django model to go struct.',
     long_description=README,
     author='treeoph',
     author_email="treeoph@gmail.com",
+    data_files=[
+        ('django2go/templates', [])],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
