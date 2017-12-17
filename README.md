@@ -3,7 +3,9 @@
 for gorm or other ORM operation.
 
 Depends in go code:
+
 https://github.com/jinzhu/gorm
+
 https://github.com/guregu/null
 
 ## Install
