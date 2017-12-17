@@ -4,4 +4,3 @@ import datetime
 from django.test import TestCase
 from testapp.models import *
 # Create your tests here.
-

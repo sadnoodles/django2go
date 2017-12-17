@@ -5,6 +5,7 @@ test:
   stage: test
   script:
     - cd test_project/
-    - python manage.py test
+    - python manage.py model2go testapp
+    - cat testapp.go
   only:
     - master
