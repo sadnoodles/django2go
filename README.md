@@ -2,11 +2,11 @@
 
 for gorm or other ORM operation.
 
-depends:
+Depends in go code:
 https://github.com/jinzhu/gorm
 https://github.com/guregu/null
 
-## install
+## Install
 
 ```bash
 git clone /django2go.git
