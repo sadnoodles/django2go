@@ -14,9 +14,10 @@ cd django2go
 python setup.py install .
 ```
 
-## 使用
+## Usage:
 
-在settings.py里增加
+settings.py
+
 ```python
 INSTALLED_APPS = [
     ...
@@ -26,6 +27,6 @@ INSTALLED_APPS = [
 
 ```
 
-使用
+run CMD:
 
 `python manage.py model2go app_name`
