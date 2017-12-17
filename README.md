@@ -32,3 +32,5 @@ INSTALLED_APPS = [
 run CMD:
 
 `python manage.py model2go app_name`
+
+Example generated go code: [testapp.go](./test_project/testapp.go)
