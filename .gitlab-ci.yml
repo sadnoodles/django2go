@@ -1,0 +1,10 @@
+stages:  
+  - test
+
+test:
+  stage: test
+  script:
+    - cd test_project/
+    - python manage.py test
+  only:
+    - master
