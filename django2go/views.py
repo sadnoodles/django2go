@@ -12,7 +12,7 @@ def trans_name(name):
 
 
 
-def map_field(field, null=True):
+def map_field(field, null=True, use_column_name=False):
     # field, field_type, tag in fields
     name, _type, tag = trans_name(field.column), "", []
     _type = serializer_field_mapping.get(field.get_internal_type(), "unknown")
@@ -22,14 +22,14 @@ def map_field(field, null=True):
     if null and field.null:
         _type = null_map[_type]
     
-    tag += ['json:"%s"'%field.column]
+    tag += ['json:"%s"'%(field.column if use_column_name else field.name)]
     if field.primary_key:
         tag += ['gorm:"primary_key"']
 
 
     return name, _type, ' '.join(tag)
 
-def get_app_structs(app_name, models=[], null=True):
+def get_app_structs(app_name, models=[], null=True, use_column_name=False):
     _models = apps.all_models[app_name]
     structs = []
     # model_name, table_name, use_prefix, fields in structs
@@ -37,7 +37,7 @@ def get_app_structs(app_name, models=[], null=True):
         if models:
             if mname not in models:
                 continue
-        go_fields = [map_field(f, null) for f in model._meta.fields]
+        go_fields = [map_field(f, null, use_column_name) for f in model._meta.fields]
         n = model.__name__
         tablename = model._meta.db_table
         use_prefix = tablename.startswith(app_name+"_")
@@ -54,11 +54,11 @@ def get_app_structs(app_name, models=[], null=True):
     return structs
 
 
-def model2go(app_name, models=[], null=True):
+def model2go(app_name, models=[], null=True, use_column_name=False):
     env = dict(
         null=null,
         app_name=app_name,
-        structs=get_app_structs(app_name, models, null),
+        structs=get_app_structs(app_name, models, null, use_column_name),
     )
     return render_to_string("model.go", env)
 
