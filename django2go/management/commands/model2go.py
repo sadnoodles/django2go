@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from django2go.views  import model2go
 class Command(BaseCommand):
-    help = 'Closes the specified poll for voting'
+    help = 'Generate structs from models.py from given app.'
 
     def add_arguments(self, parser):
         parser.add_argument('app_name', nargs='+', type=str)
