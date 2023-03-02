@@ -35,6 +35,8 @@ run CMD:
 
 Example generated go code: [testapp.go](./test_project/testapp.go)
 
+`python manage.py model2go app_name --use_column_name` To use database column name.
+
 Django model:
 
 ```python
@@ -44,7 +46,6 @@ class Model1(models.Model):
     field_with_under_score = models.IntegerField()
     fieldWithUpperCase = models.IntegerField()
     fieldWith_Case = models.IntegerField()
-
 
 ```
 

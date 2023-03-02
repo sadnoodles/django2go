@@ -21,6 +21,7 @@ URLField = "string"
 TimeField = "string"
 IPAddressField = "string"
 FilePathField = "string"
+JSONField = "string"
 
 # null_map = {
 #     "string":"sql.NullString",
@@ -67,6 +68,7 @@ serializer_field_mapping = {
     'URLField': URLField,
     'GenericIPAddressField': IPAddressField,
     'FilePathField': FilePathField,
+    'JSONField': JSONField,
 }
 
 extras = {

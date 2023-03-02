@@ -33,7 +33,7 @@ def get_app_structs(app_name, models=[], null=True, use_column_name=False):
     _models = apps.all_models[app_name]
     structs = []
     # model_name, table_name, use_prefix, fields in structs
-    for mname, model in _models.iteritems():
+    for mname, model in _models.items():
         if models:
             if mname not in models:
                 continue
