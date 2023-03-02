@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
+import six
 from setuptools import find_packages, setup
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
-    README = readme.read()
+if six.PY2:
+    with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+        README = readme.read()
+else:
+    with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf8') as readme:
+        README = readme.read()
 
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
@@ -17,6 +22,7 @@ setup(
     long_description=README,
     author='treeoph',
     author_email="treeoph@gmail.com",
+    long_description_content_type='text/markdown',
     data_files=[
         ('django2go/templates', [])],
     classifiers=[
